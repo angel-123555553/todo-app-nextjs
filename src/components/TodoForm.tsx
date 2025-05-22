@@ -1,10 +1,12 @@
 "use client";
 import { useState } from "react";
-import { useTodos } from "@/hooks/useTodos";
 
-export default function TodoForm() {
+interface Props {
+  fetchTodos: () => void;
+}
+
+export default function TodoForm({ fetchTodos }: Props) {
   const [title, setTitle] = useState("");
-  const { fetchTodos } = useTodos();
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -15,7 +17,7 @@ export default function TodoForm() {
       body: JSON.stringify({ title }),
     });
     setTitle("");
-    fetchTodos();
+    fetchTodos();          // refresh shared state
   }
 
   return (

@@ -1,9 +1,13 @@
 "use client";
-import { useTodos, Todo } from "@/hooks/useTodos";
+import { Todo } from "@/hooks/useTodos";
 
-export default function TodoList() {
-  const { todos, loading, fetchTodos } = useTodos();
+interface Props {
+  todos: Todo[];
+  loading: boolean;
+  fetchTodos: () => void;
+}
 
+export default function TodoList({ todos, loading, fetchTodos }: Props) {
   async function toggle(todo: Todo) {
     await fetch("/api/todos", {
       method: "PUT",
