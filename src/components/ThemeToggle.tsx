@@ -1,29 +1,27 @@
 "use client";
+import { Moon, Sun } from "lucide-react";
 import { useEffect, useState } from "react";
-
-const STORAGE_KEY = "todo-theme";
 
 export default function ThemeToggle() {
   const [dark, setDark] = useState(false);
 
-  // read saved preference on mount
   useEffect(() => {
-    const stored = localStorage.getItem(STORAGE_KEY);
-    setDark(stored === "dark");
+    const stored = localStorage.getItem("theme") === "dark";
+    setDark(stored);
   }, []);
 
-  // apply & save whenever it changes
   useEffect(() => {
     document.documentElement.classList.toggle("dark", dark);
-    localStorage.setItem(STORAGE_KEY, dark ? "dark" : "light");
+    localStorage.setItem("theme", dark ? "dark" : "light");
   }, [dark]);
 
   return (
     <button
+      aria-label="Toggle theme"
       onClick={() => setDark(!dark)}
-      className="rounded border px-3 py-1 text-sm"
+      className="rounded-full border border-white/30 bg-white/20 p-2 text-white backdrop-blur-xs hover:bg-white/30 dark:bg-white/10"
     >
-      {dark ? "Light" : "Dark"}
+      {dark ? <Sun size={16} /> : <Moon size={16} />}
     </button>
   );
 }

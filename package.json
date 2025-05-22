@@ -12,6 +12,8 @@
   },
   "dependencies": {
     "@prisma/client": "^6.8.2",
+    "framer-motion": "^12.12.1",
+    "lucide-react": "^0.511.0",
     "next": "15.3.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
@@ -24,9 +26,9 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.3.2",
+    "prettier": "^3",
     "prisma": "^6.8.2",
     "tailwindcss": "^4",
-    "typescript": "^5",
-    "prettier": "^3"
+    "typescript": "^5"
   }
 }

@@ -5,8 +5,28 @@
   --foreground: #171717;
 }
 /* Dark-mode body background + text */
+/* ---------- Global theming ---------- */
+
+/* Light gradient */
+body {
+  @apply bg-gradient-to-br from-indigo-500 via-purple-600 to-violet-700;
+}
+
+/* Dark gradient */
 html.dark body {
-  @apply bg-gray-900 text-gray-100;
+  @apply bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900;
+}
+
+/* Smooth scroll & nice scrollbar */
+html {
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-indigo-400/70 rounded-full;
 }
 
 @theme inline {
@@ -28,3 +48,17 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* gradient page background */
+body {
+  @apply bg-gradient-to-br from-indigo-500 via-purple-600 to-violet-700 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900;
+}
+
+/* nice scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-indigo-400/70 rounded-full;
+}
+
