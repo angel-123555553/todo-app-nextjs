@@ -4,6 +4,10 @@
   --background: #ffffff;
   --foreground: #171717;
 }
+/* Dark-mode body background + text */
+html.dark body {
+  @apply bg-gray-900 text-gray-100;
+}
 
 @theme inline {
   --color-background: var(--background);

@@ -17,7 +17,7 @@ export default function TodoForm({ fetchTodos }: Props) {
       body: JSON.stringify({ title }),
     });
     setTitle("");
-    fetchTodos();          // refresh shared state
+    fetchTodos();
   }
 
   return (
@@ -28,7 +28,8 @@ export default function TodoForm({ fetchTodos }: Props) {
         placeholder="Add a task…"
         className="flex-1 rounded-lg border px-3 py-2"
       />
-      <button className="rounded-lg bg-blue-600 px-4 py-2 font-medium text-white hover:bg-blue-700">
+      {/* ▼ Green “Add” button */}
+      <button className="rounded-lg bg-green-600 px-4 py-2 font-medium text-white hover:bg-green-700">
         Add
       </button>
     </form>
